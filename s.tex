@@ -1,0 +1,201 @@
+%\documentclass{beamer}
+% \documentclass[paper=smartboard]{powerdot}
+\documentclass[fleqn]{article}
+
+\usepackage{siunitx}
+\usepackage[russian,english]{babel}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{setspace}
+
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+\usepackage{hyphenat}
+
+\usepackage{breqn}
+
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{pgfplots}
+
+\usepackage{xcolor}
+\definecolor{Red}{HTML}{CA4F4B}
+\definecolor{Blue}{HTML}{2D70B3}
+\definecolor{Orange}{HTML}{FA7E19}
+
+\usepackage{wrapfig}
+
+\hypersetup{
+  pdfborder = {0 0 0},
+  colorlinks=true,
+  linkcolor=black
+}
+
+
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{0.0em}{0.0em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.4em}{5.5em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{7.4em}{4.5em}}
+\makeatother
+
+
+\renewcommand{\thesection}{}
+
+\renewcommand{\thesubsection}{Задание \arabic{subsection}.}
+
+\addtocontents{toc}{\protect\renewcommand{\protect\thesubsection}{\arabic{subsection}}}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    \textsc{\LARGE Математический анализ}\\[1.0 cm]
+    \textsc{\Large Первый модуль}\\[0.5 cm]
+    \textsc{\large 2022-2023 учебный год}\\[1.5 cm]
+    \rule{\linewidth}{0.1 mm} \\[0.4 cm]
+    { \huge \bfseries Интеграл функции от одной переменной. Вариант 24}\\[0.2 cm]
+    \rule{\linewidth}{0.1 mm} \\[2 cm]
+    \begin{minipage}{0.6\textwidth}
+        \begin{flushleft} \large
+            \emph{Автор:}\\
+            Нигаматуллин Степан 1.1
+        \end{flushleft}
+    \end{minipage}~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright} \large
+            \emph{Дата:} \\
+            3 июня 2023
+        \end{flushright}
+    \end{minipage}\\[2 cm]
+    {\large Университет ИТМО}\\[2 cm]
+    \vfill
+\end{titlepage}
+
+\renewcommand{\contentsname}{Содержимое}
+\tableofcontents
+\newpage
+
+
+\section{Задания}
+
+\subsection{Значение функции}
+
+Вычислить приближенное значение функции $f(x) = \cos(x)$ в точке $x_0 = \frac{8}{9}$ c точностью 0,0001.
+
+\subsection{Вычислить интеграл}
+
+Разлагая подынтегральную функцию в степенной ряд вычислить приблеженно интеграл $\int\limits_{0}^{1} \frac{xdx}{\sqrt{16+x^4}}$ с точностью 0,0001.
+
+\subsection{Степенной ряд}
+
+Найти в виде степенного ряда решение дифференциального уравнения, удовлетворяющего заданным начальным условиям. Ограничиться четырьмя членами ряда. 
+\begin{center}
+    $y'' = y'\sin{y};   y(2) = \frac{\pi}{2}, y'(2) = 1$
+\end{center}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+
+\section{Задание 1. Значение функции $f(x) = \cos(x)$}
+
+Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/fvkf5exurh}{ссылке}
+
+\subsection*{Ход работы}
+
+\[
+f\left(x\right)\ =\sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{2n}}{\left(2n\right)!}
+\]
+
+Заметим, что данный ряд сходится на всей числовой оси, следовательно, в частности, его можно применять если $x \Rightarrow \frac{8}{9}$, Заметим так же, что точность слагаемых ряда с 8 и 10 степенью составляет 4 и 6 знаков соответственно, следовательно, при нашей точности, брать слагаемые выше 8 степени не имеет смысла.
+
+Приближенное значение: $cos(\frac{8}{9}) \approx \sum_{n=1}^{6}\frac{\left(-1\right)^{n+1}}{n}x^{n} = 0.6302$
+
+% \subsubsection*{Заключение}
+
+% Тут какие-то словечки...
+
+
+\section{Задание 2. Вычислить интеграл $\int\limits_{0}^{1} \frac{xdx}{\sqrt{16+x^4}}$}
+
+Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/pv1rt3ixlw}{ссылке}
+
+\subsection*{Ход работы}
+
+Разложим для начала функцию
+
+\[
+g(x) = \frac{1}{\sqrt{16+x}}
+\]
+
+\[
+g(0) = \frac{1}{4}
+\]
+
+\[
+g'(x) = - \frac{1}{16+x} \cdot \frac{1}{2\sqrt{16+x}}
+\]
+
+\[
+g'(0) = - \frac{1}{16} \cdot \frac{1}{8} = - \frac{1}{128}
+\]
+
+\[
+g''(x) = \left( -\frac{1}{2 \left( 16+x \right)^{\frac{2}{3}}} \right)' = -\frac{1}{2} \left( (16+x)^{-\frac{3}{2}}\right)' = \frac{1}{2} \cdot \frac{3}{2} \cdot (16+x)^{-\frac{5}{2}}
+\]
+
+\[
+g''(x) = \frac{3}{4} \cdot 16^{-\frac{5}{2}} = \frac{3}{4} \cdot 16^{-\frac{5}{2}} = \frac{3}{4 \cdot 4^5} = \frac{3}{4^6} = \frac{3}{4096}
+\]
+
+
+Итого:
+
+\[
+    g(x) = \frac{1}{\sqrt{16+x}} = \frac{1}{4} - \frac{x}{128} + \frac{3}{8192} x^2 + O(x^3)
+\]
+
+Как можно заметить, $\frac{3}{8192}$ делает уже погрешность меньше чем нам необходимо, получим
+
+\[
+    g(x^4) = \frac{1}{4} - \frac{x^4}{128} + \frac{3}{8192}x^8 + O(x^12)
+    &&\\ x \cdot g(x^4) = f(x) = \frac{1}{4}x - \frac{1}{128}x^5 + \frac{3}{8192}x^9 + O(x^13)
+\]
+
+Получим
+
+\[
+    \int\limits_{0}^{1}f(x)dx = \frac{1}{8}x^2 - \frac{1}{128 \cdot 6}x^6 + \frac{3}{81920}x^{10} \Big|_{0}^{1} = \frac{1}{8} - \frac{1}{128 \cdot 6} + \frac{3}{81920} = 0,12373 ...
+\]
+
+\[
+\int\limits_{0}^{1} \frac{x}{\sqrt{16+x^4}} = 0,12373
+\]
+
+
+\section{Задание 3. Степенной ряд}
+
+Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/0imxfkpgnf}{ссылке}
+
+\subsection*{Ход работы}
+
+$\quad\sqsupset y = y(2) + \frac{y'(2)(x-2)}{1!} + \frac{y''(2)(x-2)^2}{2!} + \frac{y'''(2)(x-2)^3}{3!}$ - Ряд Тейлора для данной функции в точке $x_0 = 2$, ограничивающийся только 4 первыми слагаемыми, итак значения 0 и 1 производных мы знаем, рассамотрим производные далее:
+
+\[
+    y''(2) = y'(2)\sin{y(2)} = 1
+\]
+
+\[
+    y''' = (y'')' = (y'\sin{y})' = y''\sin{y} + \cos{y}y' \Rightarrow y'''(2) = 1
+\]
+
+Итого получим: $y = \frac{\pi}{2} - 2 + x + \frac{1}{2}(x-2)^2 + \frac{1}{6}(x-2)^3$
+
+\end{document}

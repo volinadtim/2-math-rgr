@@ -1,0 +1,143 @@
+%\documentclass{beamer}
+% \documentclass[paper=smartboard]{powerdot}
+\documentclass{article}
+
+\usepackage{siunitx}
+\usepackage[russian,english]{babel}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{setspace}
+
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+\usepackage{hyphenat}
+
+\usepackage{breqn}
+
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{pgfplots}
+
+\usepackage{xcolor}
+\definecolor{Red}{HTML}{CA4F4B}
+\definecolor{Blue}{HTML}{2D70B3}
+\definecolor{Orange}{HTML}{FA7E19}
+
+\usepackage{wrapfig}
+
+\hypersetup{
+  pdfborder = {0 0 0},
+  colorlinks=true,
+  linkcolor=black
+}
+
+
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{0.0em}{0.0em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.4em}{5.5em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{7.4em}{4.5em}}
+\makeatother
+
+
+\renewcommand{\thesection}{}
+
+\renewcommand{\thesubsection}{Задание \arabic{subsection}.}
+
+\addtocontents{toc}{\protect\renewcommand{\protect\thesubsection}{\arabic{subsection}}}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    \textsc{\LARGE Математический анализ}\\[1.0 cm]
+    \textsc{\Large Первый модуль}\\[0.5 cm]
+    \textsc{\large 2022-2023 учебный год}\\[1.5 cm]
+    \rule{\linewidth}{0.1 mm} \\[0.4 cm]
+    { \huge \bfseries Интеграл функции от одной переменной. Вариант 16}\\[0.2 cm]
+    \rule{\linewidth}{0.1 mm} \\[2 cm]
+    \begin{minipage}{0.6\textwidth}
+        \begin{flushleft} \large
+            \emph{Автор:}\\
+            Бушмелев Константин 1.1
+        \end{flushleft}
+    \end{minipage}~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright} \large
+            \emph{Дата:} \\
+            3 июня 2023
+        \end{flushright}
+    \end{minipage}\\[2 cm]
+    {\large Университет ИТМО}\\[2 cm]
+    \vfill
+\end{titlepage}
+
+\renewcommand{\contentsname}{Содержимое}
+\tableofcontents
+\newpage
+
+
+\section{Задания}
+
+\subsection{Значение функции}
+
+Вычислить приближенное значение функции $f(x) = 3^x$ c точностью 0,0001.
+
+\subsection{Вычислить интеграл}
+
+Разлагая подынтегральную функцию в степенной ряд вычислить приблеженно интеграл $\int\limits_{0}^{\frac{1}{3}} x^3 \sqrt[\leftroot{4} 4]{1 + x^2}dx$ с точностью 0,0001.
+
+\subsection{Степенной ряд}
+
+Найти в виде степенного ряда решение дифференциального уравнения. Получить интегральную траекторию, использую заданные начальные условия (Ограничиться четырьмя первыми ненулевыми членами ряда). Изобразить на графике полученное общее решение и решение задачи Коши.
+
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+
+\section{Задание 1. Значение функции $f(x) = 3^x$}
+
+\begin{multiline*}
+f(x) = 3^x &&\\
+f'(x) = \ln{3} \cdot 3^x &&\\
+f''(x) = \left(\ln{3}\right)^2 \cdot 3^x &&\\
+f'''(x) = \left(\ln{3}\right)^3 \cdot 3^x &&\\
+f(x) = f(0) + \frac{f'(0)x}{1} + \frac{f''(0)x^2}{2!} + \frac{f'''(0)x^3}{3!} + ...\approx \\
+\approx 1 + \frac{2}{3} \ln{3} + \left(ln{3}\right)^2 \cdot \frac{1}{2} \cdot \frac{4}{9} + \left(ln{3}\right)^3 \cdot \frac{1}{6} \cdot \frac{7}{27} \approx 2,0801 &&
+\end{multiline*}
+
+% \subsubsection*{Заключение}
+
+% Тут какие-то словечки...
+
+
+\section{Задание 2. Вычислить интеграл $\int\limits_{0}^{\frac{1}{3}} x^3 \sqrt[\leftroot{4} 4]{1 + x^2}dx$}
+
+\begin{multiline*}
+\int\limits_{0}^{\frac{1}{3}} x^3  \sqrt[\leftroot{4} 4]{1 + x^2}dx &&\\
+(1 + x)^{\alpha} = \sum\limits_{0}^{\infty} C_{n}^{\alpha} x^{n} &&\\
+(1 + x^2)^{\frac{1}{4}} =  \sum\limits_{0}^{\infty} C_{n}^{\frac{1}{4}} x^{2n} &&\\
+\int\limits_{0}^{\frac{1}{3}} x^3 \sum\limits_{0}^{\infty} C_{n}^{\frac{1}{4}} x^{2n}dx = \sum\limits_{0}^{\infty}\int\limits_{0}^{\frac{1}{3}}  C_{n}^{\frac{1}{4}} x^{2n+3}dx = \sum\limits_{0}^{\infty} C_{n}^{\frac{1}{4}} \int\limits_{0}^{\frac{1}{3}}   x^{2n+3}dx = \sum\limits_{0}^{\infty} C_{n}^{\frac{1}{4}} \left(  \frac{x^{2n+4}}{2n+4} \Big|_{0}^{\frac{1}{3}} \right) = \sum\limits_{0}^{\infty} C_{n}^{\frac{1}{4}} \frac{\left(\frac{1}{3}\right)^{2n+4}}{2n+4} \approx 0,0031
+\end{multiline*}
+
+
+
+\section{Задание 3. Степенной ряд}
+
+$y(2) = 2, \quad y'(2) = 1, \quad y'' - (y')^2 = x$
+
+$\quad\sqsupset y = y(2) + \frac{y'(2)(x-2)}{1!} + \frac{y''(2)(x-2)^2}{2!} + \frac{y'''(2)(x-2)^3}{3!}$ - Ряд Тейлора для данной функции в точке $x_0 = 2$, ограничивающийся только 4 первыми слагаемыми, итак значения 0 и 1 производных мы знаем, рассамотрим производные далее:
+\begin{align}
+    y''(2) = y'(2)^2 + x
+\end{align}
+\begin{align}    
+    y''' = (y'')' = (y'(2)^2 + x)' = 2y'(2) + 1
+\end{align}
+Итого получим:
+$y = 2 + x - 2 + \frac{1}{2}(x^3-3x^2+4) + \frac{1}{2}(x^3 - 2x^2 + 4x - 8) = \frac{x^3}{2}-\frac{5x^2}{2}+3x-2$ 
+
+\end{document}

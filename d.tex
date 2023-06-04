@@ -1,0 +1,158 @@
+%\documentclass{beamer}
+% \documentclass[paper=smartboard]{powerdot}
+\documentclass{article}
+
+\usepackage{siunitx}
+\usepackage[russian,english]{babel}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{setspace}
+
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+\usepackage{hyphenat}
+
+\usepackage{breqn}
+
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{pgfplots}
+
+\usepackage{xcolor}
+\definecolor{Red}{HTML}{CA4F4B}
+\definecolor{Blue}{HTML}{2D70B3}
+\definecolor{Orange}{HTML}{FA7E19}
+
+\usepackage{wrapfig}
+
+\hypersetup{
+  pdfborder = {0 0 0},
+  colorlinks=true,
+  linkcolor=black
+}
+
+
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{0.0em}{0.0em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.4em}{5.5em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{7.4em}{4.5em}}
+\makeatother
+
+
+\renewcommand{\thesection}{}
+
+\renewcommand{\thesubsection}{Задание \arabic{subsection}.}
+
+\addtocontents{toc}{\protect\renewcommand{\protect\thesubsection}{\arabic{subsection}}}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    \textsc{\LARGE Математический анализ}\\[1.0 cm]
+    \textsc{\Large Первый модуль}\\[0.5 cm]
+    \textsc{\large 2022-2023 учебный год}\\[1.5 cm]
+    \rule{\linewidth}{0.1 mm} \\[0.4 cm]
+    { \huge \bfseries Интеграл функции от одной переменной. Вариант 3}\\[0.2 cm]
+    \rule{\linewidth}{0.1 mm} \\[2 cm]
+    \begin{minipage}{0.6\textwidth}
+        \begin{flushleft} \large
+            \emph{Автор:}\\
+            Курочка Дмитрий 1.3
+        \end{flushleft}
+    \end{minipage}~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright} \large
+            \emph{Дата:} \\
+            3 июня 2023
+        \end{flushright}
+    \end{minipage}\\[2 cm]
+    {\large Университет ИТМО}\\[2 cm]
+    \vfill
+\end{titlepage}
+
+\renewcommand{\contentsname}{Содержимое}
+\tableofcontents
+\newpage
+
+
+\section{Задания}
+
+\subsection{Значение функции}
+
+Вычислить приближенное значение функции $f(x) = e^x$ в точке $x_0 = -\frac{1}{5}$ c точностью 0,0001.
+
+\subsection{Вычислить интеграл}
+
+Разлагая подынтегральную функцию в степенной ряд вычислить приблеженно интеграл $\int\limits_{0}^{0.5} \sin{x^2}dx$ с точностью 0,0001.
+
+\subsection{Степенной ряд}
+
+Найти в виде степенного ряда решение дифференциального уравнения, удовлетворяющего заданным начальным условиям. Ограничиться четырьмя членами ряда. 
+\begin{center}
+    $y' = \ln{y} + 1 + x; y(0) = 1$
+\end{center}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+
+\section{Задание 1. Значение функции $f(x) = e^x$}
+
+\begin{enumerate}
+    \item $f\left(x\right)\ =\sum_{n=0}^{k}\frac{x^n}{n!}$
+    \item Заметим, что данный ряд сходится на всей числовой оси, следовательно, в частности, его можно применять если $x \Rightarrow -\frac{1}{5}$, Заметим так же, что точность слагаемого ряда с 4 степенью составляет $\frac{1}{15000}$, следовательно, при нашей точности, брать слагаемые выше 4 степени не имеет смысла.
+    \item Приближенное значение: $e^-\frac{1}{5} \approx \sum_{n=1}^{5}\frac{x^n}{n!} = 0.8187$
+\end{enumerate}
+
+% \subsubsection*{Заключение}
+
+% Тут какие-то словечки...
+
+
+\section{Задание 2. Вычислить интеграл $\int\limits_{0}^{0.5} \sin{x^2}dx$}
+
+Разложим для начала функцию
+
+\begin{align}
+    g(x) = \sin{x}
+     = \sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{2n+1}}{\left(2n\ +\ 1\right)!}\\
+    g(x^2) = \sin{x^2}
+     = \sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{4n+2}}{\left(2n\ +\ 1\right)!}
+\end{align}
+    
+\begin{equation}
+    \int\limits_{0}^{0.5}\sin{x^2}dx = \int\limits_{0}^{0.5}\sum_{n=0}^{k}\frac{(-1)^{n}x^{4n+2}}{(2n+1)!}dx
+\end{equation}
+
+Воспользуемся свойствами определенного интеграла, распишем сумму, так же воспользуемся формулой Ньютона-Лейбница, получим:
+
+\begin{equation}
+    \int\limits_{0}^{0.5}\sin{x^2}dx = \sum_{n=0}^{k}\frac{(-1)^n}{(2n+1)!}\frac{1}{(4n + 3)2^{4n+3}} = \frac{1}{3*2^3} - \frac{1}{6 * 7 * 2^7} + \frac{1}{120 * 11 * 2^{11}} + r_n 
+\end{equation}
+
+Итого: 
+\\
+$\int\limits_{0}^{0.5}\sin{x^2}dx \approx 0.04148 \approx 0.0415$
+
+\section{Задание 3. Степенной ряд}
+
+$\quad\sqsupset y = y(0) + \frac{y'(0)x}{1!} + \frac{y''(0)x^2}{2!} + \frac{y'''(0)x^3}{3!}$ - Ряд Тейлора для данной функции в точке $x_0 = 0$, ограничивающийся только 4 первыми слагаемыми, итак значения 0 производной мы знаем, рассамотрим производные далее:
+\begin{align}
+    y'' = (y')' = (\ln{y})' + x' = \frac{y'}{y} + 1\\
+    y''' = (y'')' = \frac{y''y - (y'^2)}{y^2}
+\end{align}
+\begin{align}    
+    y(0) = 1
+    y'(0) = 1
+    y''(0) = 2
+    y'''(0) = 1
+\end{align}
+Итого получим:
+$y = 1 + x + x^2 + \frac{x^3}{6}$
+
+\end{document}
