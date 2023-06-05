@@ -1,0 +1,45 @@
+\ProvidesPackage{preamble}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{siunitx}
+\usepackage[russian,english]{babel}
+
+
+\usepackage{setspace}
+
+\usepackage{float}
+\usepackage[newfloat]{minted}
+\setminted{
+    linenos=true,
+    autogobble,
+}
+\usepackage{caption}
+
+\newenvironment{codelisting}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Программный Код}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{hyphenat}
+
+\usepackage{breqn}
+
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{pgfplots}
+
+\usepackage{xcolor}
+\definecolor{Red}{HTML}{CA4F4B}
+\definecolor{Blue}{HTML}{2D70B3}
+\definecolor{Orange}{HTML}{FA7E19}
+
+\usepackage{wrapfig}
+
+\hypersetup{
+  pdfborder = {0 0 0},
+  colorlinks=true,
+  linkcolor=black
+}

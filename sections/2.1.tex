@@ -1,0 +1,41 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=true]{standalone}
+
+\usepackage{preamble}
+
+\begin{document}
+
+Исследуйте ряд Тейлора функции $f(x)$ в точке $x_0$. Изобразите графически несколько различных  частичных сумм ряда и график исходной функции. Проведите анализ полученных результатов.\\
+
+Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/0sct6ckztm}{ссылке}
+
+\subsubsection*{Ход работы}
+
+\begin{enumerate}
+    \item В заданной точке разложили  функцию в ряд Тейлора.
+	
+    $f(x) = (2 - e^{(x-2)})^2 = 4 - 4e^{(x-2)} + e^{2(x-2)}, x_0 = 2$
+
+    Мы умеем раскладывать $g(x) = e^{x}$, если $x\to0 \Rightarrow$ мы умеем раскладывать $g(x) = e^{x-2}$ если $x \to 2$.\\
+
+    Получим:
+
+    $e^{x} =\sum_{n=0}^{\infty} \frac{x^n}{n!} \quad \text{при} \quad x \to 0$
+
+    $e^{x-2} =        \sum_{n=0}^{\infty} \frac{(x-2)^n}{n!} \quad \text{при} \quad x \to 2$
+
+    $e^{2(x-2)} =        \sum_{n=0}^{\infty} \frac{(x-2)^n2^{n}}{n!} \quad \text{при} \quad x \to 2$
+
+    Получим:
+
+    $f(x) = 4 + \sum_{n=0}^{\infty}(\frac{2^{n}}{n!} - \frac{4}{n!})(x-2)^{n} = 4 + \sum_{n=0}^{\infty}\frac{2^{n}-4}{n!}(x-2)^{n}$
+    
+    Ряд $e^{x-2}$ сходится на всей числовой оси $\Rightarrow$ и получившийся ряд тоже сходится на всей числовой оси.
+
+    \item Нашли область сходимости полученного ряда к функции $f(x)$ - $(-\infty, \infty)$
+    \item Построили графики частичных сумм ряда Тейлора (полиномов Тейлора) и график функции.
+\end{enumerate}
+\newpage
+
+\end{document}

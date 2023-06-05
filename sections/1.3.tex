@@ -1,0 +1,78 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=true]{standalone}
+
+\usepackage{preamble}
+
+\begin{document}
+
+
+
+% \begin{wrapfigure}{i}{\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        xlabel=$x$,
+        ylabel={$y$},
+        domain=-2:2,
+        samples=200,
+        axis lines=middle,
+        ymin=-1,
+        ymax=3
+    ]
+    \addplot [thick,color=Red] {rad(atan(x)/x)};
+    \addplot [thick,color=Blue] gnuplot {x**2 * atan(x)};
+    \addplot [thick,color={rgb,255:red,0;green,128;blue,0}] {rad(atan(x))/(x^3)};
+    \node [above] at (axis cs:1.7,0.65) {\rotatebox{-10}{$\alpha = 1$}};
+    \node [left] at (axis cs:-0.7,2.0) {\rotatebox{70}{$\alpha = 3$}};
+    \node [left] at (axis cs:0,-0.3) {\rotatebox{20}{$\alpha = -2$}};
+    \end{axis}
+    \end{tikzpicture}
+    
+    \caption{ $
+    f\left(x\right)=\frac{\arctg\left(x\right)}{x^{\alpha}}$}
+    \label{fig:task3}
+\end{center}
+% \end{wrapfigure}
+
+Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/jjtlvpwjjv?lang=ru}{ссылке}
+
+\subsubsection*{Ход работы}
+
+\begin{enumerate}
+    \item Особой точкой подынтегральной функции является точка $x_0 = 0$, так как в ней происходит деление на ноль.
+    \item На промежутке от 0 до 1 подынтегральная функция всегда принимает положительные значения, при любых $\alpha$.
+    \item При $\alpha = 0$ интеграл легко вычисляется. Рассмотрим его:
+    
+    \begin{aligned}
+    &\int\limits_{0}^{1}\frac{\arctg{x}}{x^0}dx = \int\limits_{0}^{1}\arctg{x}dx = x\arctg x\bigg|\limits_{0}^{1} - \frac{1}{2}\left(\ln\left(1 + x^2\right) \bigg|\limits_{0}^{1} \right) = \hfill \\
+    &= 1\cdot \arctg{1} - 0\cdot\arctg{0} - \frac{1}{2} \left(\ln{2} - \ln{0}\right) = \frac{\pi -2\ln{2}}{4}
+    \end{align}
+    
+    Отсюда можно сделать вывод, что интеграл сходится при $\alpha = 0$ и его значения $\approx 0.4388$.
+
+    \item Сформулируем признаки сравнения:
+    
+    \begin{aligned}
+        \text{Пусть функции } f(x) \text{ и } g(x) \text{ определены на промежутке } \\
+        (A,B) \text{ и удовлетворяют неравенству } f(x)<=\abs(g(x))
+        
+    \end{aligned}
+
+    \item Сделаем оценку сверху:
+    $$
+    \frac{\arctg{x}}{x^{\alpha}} < \frac{\frac{\pi}{2}}{x^{\alpha}}
+    $$
+    Отсюда видно, что при $\alpha<1$ интеграл от правой функции будет сходится, а значит интеграл от меньшей функции тоже сходится.
+
+    \item Оценка снизу, очевидно, $y = 0$.
+
+\end{enumerate}
+
+\subsubsection*{Заключение}
+
+Тут какие-то словечки...
+
+\newpage
+
+\end{document}

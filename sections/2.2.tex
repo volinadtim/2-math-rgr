@@ -1,0 +1,54 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=true]{standalone}
+
+\usepackage{preamble}
+
+\begin{document}
+
+
+С помощью разложения в ряд Фурье данной функции в интервале $(-\pi, \pi)$ найдите сумму указанного числового ряда. Изобразите графически три различные частичные суммы разложения функции в ряд Фурье, взяв первые несколько слагаемых ряда, а также исходную функцию.
+
+\subsubsection*{Ход работы}
+
+\begin{enumerate}
+    \item Представили функцию $f(x) = x\sin{x}$ ее рядом Фурье. Данная функция не является суммой полученного ряда на всей числовой оси.
+
+    \begin{alligned}
+        $f(x) = x\sin{x}\quad T = 2\pi  \quad f(x) \approx \frac{a_0}{2} + \sum_{k=0}^{\infty}a_k\cos{kx} + b_k\sin{kx}$
+
+        Найдем коэффициенты Фурье:
+        
+        $a_0(f) = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \, dx = \frac{2}{\pi}\int_{0}^{\pi} x \sin(x) \, dx = \bigg|u = x, dv = \sin{x}dx, du = dx, v = -\cos{x}\bigg| = \frac{2}{\pi}(-x\cos{x} + \int_{0}^{\pi}\cos(x) \, dx) = \frac{-2}{\pi}x\cos{x}\bigg|_0^{\pi} + \sin{x}\bigg|_0^{\pi} = 2$
+
+        $b_k = 0$, так как функция четная.
+
+        $a_k = \frac{2}{\pi}\int_{0}^{\pi} x\sin{x}\cos{kx} \, dx =  \frac{1}{\pi}\int_{0}^{\pi} x\sin{(k+1)x} \, dx  + \frac{1}{\pi}\int_{0}^{\pi} x\sin{(1-k)x} \, dx = \bigg|u = x, dv = \sin{(k+1)x}dx, du = dx, v = \frac{-\cos{(k+1)x}}{k+1}\bigg| = \frac{x}{\pi}\frac{-\cos{(k+1)x}}{k+1}\bigg|_0^{pi}  + \frac{1}{\pi}\int_{0}^{\pi} \frac{\cos{(k+1)x}}{k+1} \, dx + \frac{x}{\pi}\frac{-\cos{(1-k)x}}{1-k}\bigg|_0^{pi}  + \frac{1}{\pi}\int_{0}^{\pi} \frac{\cos{(1-k)x}}{1-k} \, dx = \frac{(-1)^k}{k+1} + \frac{(-1)^k}{1-k} + \frac{\sin{(k+1)x}}{\pi(k+1)^2}\bigg|_0^{\pi} + \frac{\sin{(1-k)x}}{\pi(1-k)^2}\bigg|_0^{\pi} =     \frac{(-1)^k}{k+1} + \frac{(-1)^k}{1-k} = \frac{-2(-1)^k}{k^2-1}$ 
+
+        
+        \item Далее разобьем сумму на сумму первого слагаемого и сумму начиная со второго, так как при $n = 1$ было деление на 0 в $a_n$,поэтому нужно отдельно посчитать $a_1$:
+
+        $a_1 = -\frac{1}{2}\cos\left(x\right)$
+
+        \item Ряд Фурье: $1\ -\frac{1}{2}\cos\left(x\right)+\sum_{n=2}^{\infty}\left(-\frac{2\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
+
+        \item     Выполненная работа в Desmos доступна по 
+\href{https://www.desmos.com/calculator/t1pwcmyzo2?lang=ru}{ссылке}
+
+        \item Искомая сумма ряда:
+        $\sum_2^{\infty}\frac{(-1)^n}{n^2-1}$. Выразим ее из ряда Фурье:
+
+        $x\sin{x} = 1\ -\frac{1}{2}\cos\left(x\right)+\sum_{n=2}^{\infty}\left(-\frac{2\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
+
+        $x\sin{x} - 1 + \frac{1}{2}\cos\left(x\right) = \sum_{n=2}^{\infty}\left(-\frac{2\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
+
+        $\frac{-x}{2}\sin{x} + \frac{1}{2} - \frac{\cos{x}}{4} = \sum_{n=2}^{\infty}\left(\frac{\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
+
+        В точке $x_0 = 0$:
+
+        $\frac{1}{4} = \sum_{n=2}^{\infty}\left(\frac{\left(-1\right)^{n}}{n^{2}-1}\right)$
+    \end{alligned}
+
+    
+\end{enumerate}
+
+\end{document}
