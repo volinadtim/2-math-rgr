@@ -14,11 +14,11 @@
     \item Представили функцию $f(x) = x\sin{x}$ ее рядом Фурье. Данная функция не является суммой полученного ряда на всей числовой оси.
 
     \begin{alligned}
-        $f(x) = x\sin{x}\quad T = 2\pi  \quad f(x) \approx \frac{a_0}{2} + \sum_{k=0}^{\infty}a_k\cos{kx} + b_k\sin{kx}$
+        $f(x) = x\sin{x}\quad T = 2\pi  \quad S(x) = \frac{a_0}{2} + \sum\limits_{k=0}^{\infty}a_k\cos{kx} + b_k\sin{kx}$
 
         Найдем коэффициенты Фурье:
         
-        $a_0(f) = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \, dx = \frac{2}{\pi}\int_{0}^{\pi} x \sin(x) \, dx = \bigg|u = x, dv = \sin{x}dx, du = dx, v = -\cos{x}\bigg| = \frac{2}{\pi}(-x\cos{x} + \int_{0}^{\pi}\cos(x) \, dx) = \frac{-2}{\pi}x\cos{x}\bigg|_0^{\pi} + \sin{x}\bigg|_0^{\pi} = 2$
+        $a_0(f) = \frac{1}{\pi}\int\limits_{-\pi}^{\pi} f(x) \, dx = \frac{2}{\pi}\int\limits_{0}^{\pi} x \sin(x) \, dx = \left\bigg| u = x, \\ dv = \sin{x}dx, \\ du = dx, \\ v = -\cos{x} \right\bigg| = \frac{2}{\pi}(-x\cos{x} + \int_\limits{0}^{\pi}\cos(x) \, dx) = \frac{-2}{\pi}x\cos{x}\bigg|_0^{\pi} + \sin{x}\bigg|_0^{\pi} = 2$
 
         $b_k = 0$, так как функция четная.
 
@@ -29,10 +29,10 @@
 
         $a_1 = -\frac{1}{2}\cos\left(x\right)$
 
-        \item Ряд Фурье: $1\ -\frac{1}{2}\cos\left(x\right)+\sum_{n=2}^{\infty}\left(-\frac{2\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
+        \item Ряд Фурье: $1\ -\frac{1}{2}\cos\left(x\right)+\sum\limits_{n=2}^{\infty}\left(-\frac{2\left(-1\right)^{n}}{n^{2}-1}\cos\left(nx\right)\right)$
 
         \item     Выполненная работа в Desmos доступна по 
-\href{https://www.desmos.com/calculator/t1pwcmyzo2?lang=ru}{ссылке}
+\href{https://www.desmos.com/calculator/ttsrvemita?lang=ru}{ссылке}
 
         \item Искомая сумма ряда:
         $\sum_2^{\infty}\frac{(-1)^n}{n^2-1}$. Выразим ее из ряда Фурье:

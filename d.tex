@@ -107,7 +107,7 @@
     \item $f\left(x\right)\ =\sum\limits_{n=0}^{\infty}\frac{x^n}{n!}$
     \item $e^{-\frac{1}{5}} = \sum\limits_{n=0}^{\infty}\frac{(-\frac{1}{5})^n}{n!} = \sum\limits_{n=0}^{\infty}\frac{(-1)^n}{5^nn!}$
     \item Заметим, что данный ряд сходится на всей числовой оси, следовательно, в частности, его можно применять если $x \Rightarrow -\frac{1}{5}$, Заметим так же, что точность слагаемого ряда с 4 степенью составляет $\frac{1}{15000}$, следовательно, при нашей точности, брать слагаемые выше 4 степени не имеет смысла. Также важно отметить, что ряд имеет лейбницовский тип, поэтому мы можем отбросить остаточный многочлен.
-    \item Приближенное значение: $e^-\frac{1}{5} \approx  \sum\limits_{n=0}^{5}\frac{(-1)^n}{5^nn!} = 0.8187$
+    \item Приближенное значение: $e^{-\frac{1}{5}} \approx  \sum\limits_{n=0}^{5}\frac{(-1)^n}{5^nn!} = 0.8187$
 \end{enumerate}
 
 % \subsubsection*{Заключение}
@@ -119,22 +119,24 @@
 
 Разложим для начала функцию
 
-\begin{align}
-    g(x) = \sin{x}
+\[
+\begin{split}
+    &g(x) = \sin{x}
      = \sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{2n+1}}{\left(2n\ +\ 1\right)!}\\
-    g(x^2) = \sin{x^2}
-     = \sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{4n+2}}{\left(2n\ +\ 1\right)!}
-\end{align}
-    
-\begin{equation}
-    \int\limits_{0}^{0.5}\sin{x^2}dx = \int\limits_{0}^{0.5}\sum_{n=0}^{k}\frac{(-1)^{n}x^{4n+2}}{(2n+1)!}dx
-\end{equation}
+    &g(x^2) = \sin{x^2}
+     = \sum_{n=0}^{k}\frac{\left(-1\right)^{n}x^{4n+2}}{\left(2n\ +\ 1\right)!} \\
+    &\int\limits_{0}^{0.5}\sin{x^2}dx = \int\limits_{0}^{0.5}\sum_{n=0}^{k}\frac{(-1)^{n}x^{4n+2}}{(2n+1)!}dx
+\end{split}
+\]
 
 Воспользуемся свойствами определенного интеграла, распишем сумму, так же воспользуемся формулой Ньютона-Лейбница, получим:
 
-\begin{equation}
-    \int\limits_{0}^{0.5}\sin{x^2}dx = \sum_{n=0}^{k}\frac{(-1)^n}{(2n+1)!}\frac{1}{(4n + 3)2^{4n+3}} = \frac{1}{3*2^3} - \frac{1}{6 * 7 * 2^7} + \frac{1}{120 * 11 * 2^{11}} + r_n 
-\end{equation}
+\[
+\begin{split}
+&\int\limits_{0}^{0.5}\sin{x^2}dx = \sum_{n=0}^{k}\int\limits_{0}^{0.5}\frac{(-1)^{n}x^{4n+2}}{(2n+1)!}dx = \sum_{n=0}^{k}\frac{(-1)^{n}x^{4n+3}}{(4n+3)(2n+1)!}\bigg|\limits_{0}^{0.5} = \\
+&=\sum_{n=0}^{k}\frac{(-1)^n}{(2n+1)!}\frac{1}{(4n + 3)2^{4n+3}} = \frac{1}{3*2^3} - \frac{1}{6 * 7 * 2^7} + \frac{1}{120 * 11 * 2^{11}} + r_n 
+\end{split}
+\]
 
 Итого: 
 \\
