@@ -123,12 +123,15 @@
 
 \section{Задание 2. Вычислить интеграл $\int\limits_{0}^{1/3} \frac{x}{\sqrt{1+x^3}}dx$}
 
+График в Desmos доступен по
+\href{https://www.desmos.com/calculator/9n57v4dodl}{ссылке}
+
 
 \begin{multiline*}
 \int\limits_{0}^{\frac{1}{3}} \frac{x}{\sqrt{1+x^3}}dx = \int\limits_{0}^{\frac{1}{3}} x \cdot (1+x^3)^{-0.5}dx &&\\
 (1 + x)^{\alpha} =  \sum\limits_{0}^{\infty} C_{n}^{\alpha} x^{n} &&\\
 (1 + x^3)^{-\frac{1}{2}} =  \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} x^{3n} &&\\
-\int\limits_{0}^{\frac{1}{3}} x \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} x^{3n}dx = \sum\limits_{0}^{\infty}\int\limits_{0}^{\frac{1}{3}}  C_{n}^{-\frac{1}{2}} x^{3n+1}dx = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \int\limits_{0}^{\frac{1}{3}}   x^{3n+1}dx = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \left(  \frac{x^{3n+2}}{3n+2} \Big|_{0}^{\frac{1}{3}} \right) = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \frac{\left(\frac{1}{3}\right)^{3n+2}}{3n+2} \approx 0,0031
+\int\limits_{0}^{\frac{1}{3}} x \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} x^{3n}dx = \sum\limits_{0}^{\infty}\int\limits_{0}^{\frac{1}{3}}  C_{n}^{-\frac{1}{2}} x^{3n+1}dx = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \int\limits_{0}^{\frac{1}{3}}   x^{3n+1}dx = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \left(  \frac{x^{3n+2}}{3n+2} \Big|_{0}^{\frac{1}{3}} \right) = \sum\limits_{0}^{\infty} C_{n}^{-\frac{1}{2}} \frac{\left(\frac{1}{3}\right)^{3n+2}}{3n+2} \approx 0,0551
 \end{multiline*}
 
 \section{Задание 3. Степенной ряд}
@@ -141,12 +144,12 @@
 $y(1) = 2, \quad y'(1) = 1, \quad y'' = y\ln{y'}$
 
 $\quad\sqsupset y = y(1) + \frac{y'(1)(x-1)}{1!} + \frac{y''(1)(x-1)^2}{2!} + \frac{y'''(1)(x-1)^3}{3!}$ - Ряд Тейлора для данной функции в точке $x_0 = 1$, ограничивающийся только 4 первыми слагаемыми, итак значения 0 и 1 производных мы знаем, рассамотрим производные далее:
-\begin{align}
+\[
     y''(2) = y\ln{y'}
-\end{align}
-\begin{align}    
+\]
+\[
     y''' = (y'')' = y'\ln{y'} + \frac{y * y''}{y'}
-\end{align}
+\]
 Итого получим:
 $y = 2 + x - 1 = x + 1$
 
